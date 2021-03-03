@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CompetitonMerit_MVC.Models.Subject>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<body style="background-color: #DCFBFB;"><!--to chnage background color-->
+    <h1>Subjects</h1>
+    <br/><!--it is break tag"to break line"-->
+    <!--little page info-->
+    <p> The page explpain about the different subjects in which students participated and give little description About the subject.</p>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <!--table Started-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th><!--Names that are visiable on page-->
+                    Subject Name
+                </th>
+                <th>
+                    Subject Description
+                </th>
+                <th>
+                    Subject Language
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--do_not_delete_it-->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject_Name)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject_description)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject_language)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </body>

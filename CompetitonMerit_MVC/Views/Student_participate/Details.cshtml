@@ -1,0 +1,48 @@
+﻿@model CompetitonMerit_MVC.Models.Student_participate
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student_participate</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Student Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student_Name)
+        </dd>
+        <dt class = "col-sm-2">
+           Student Age
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student_age)
+        </dd>
+        <dt class = "col-sm-2">
+            Mobile Number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mobile_Number)
+        </dd>
+        <dt class = "col-sm-2">
+            Student Address
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student_Address)
+        </dd>
+        <dt class = "col-sm-2">
+           Father Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Father_Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

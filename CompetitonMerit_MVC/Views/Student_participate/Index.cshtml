@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CompetitonMerit_MVC.Models.Student_participate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<body style="background-color: #DCFBFB;">
+    <!--to chnage background color-->
+    <h1>Student Participated</h1>
+    <br /><!--it is break tag"to break line "-->
+    <p><!--little info page-->
+        This page include All the names of the Students who participated in the olmypiad and pass the olmypiad with Top Rank.You can find Your name as well if you think you topped in your field. The page inculde all the Info about rhe students like Father Name, Student's Age, Address and etc.'
+    </p>
+
+    <p>
+        <a asp-action="Create">Add Student </a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Student Name<!--Names that are visible on page-->
+                </th>
+                <th>
+                    Student Age
+                </th>
+                <th>
+                    Mobile Number
+                </th>
+                <th>
+                    Student Address
+                </th>
+                <th>
+                    Father Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--do_not_delete_it-->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student_Name)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student_age)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mobile_Number)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student_Address)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Father_Name)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

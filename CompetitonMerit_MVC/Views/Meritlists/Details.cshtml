@@ -1,0 +1,42 @@
+﻿@model CompetitonMerit_MVC.Models.Meritlist
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Meritlist</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Student Participate
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student_participate.Father_Name)
+        </dd>
+        <dt class = "col-sm-2">
+           School
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.School.School_Address)
+        </dd>
+        <dt class = "col-sm-2">
+           Subject
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subject.Subject_Name)
+        </dd>
+        <dt class = "col-sm-2">
+           Marks
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Marks)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

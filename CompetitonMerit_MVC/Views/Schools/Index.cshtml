@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CompetitonMerit_MVC.Models.School>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<body style="background-color: #DCFBFB;">
+    <!--to change background color-->
+    <h1>School</h1>
+    <br /><!--break tag"to break line"-->
+    <p><!--little info about page-->
+        Here you will find the names of the Schools to which Merit Students belong. This page provide full details of the Schools like Address, Phone Number, Website and Name of the School as well.
+    </p>
+
+    <p>
+        <a asp-action="Create">Add New </a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <!--Names that are visible on page-->
+                    School Name
+                </th>
+                <th>
+                    School Address
+                </th>
+                <th>
+                    School Mobile
+                </th>
+                <th>
+                    School Website
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School_Name)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School_Address)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School_Mobile)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School_Webite)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

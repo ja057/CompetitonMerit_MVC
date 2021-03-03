@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CompetitonMerit_MVC.Models.Meritlist>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<body style="background-color: #DCFBFB;">
+    <!--to chnage background color-->
+    <h1>MeritList</h1>
+    <br /><!--it break tag "to break the line"-->
+
+    <p><!--Info about page-->
+        As you can guess from the name of the page, it is MeritList of the Students. You Might find it difficult to see your Name but the list is not carrying your name, the result is shown in front of your Father Name or either you can search for your School Name or Subject. After a decaded, there is a school which have two Merit Student in different field .i.e. One Tree Hill College.
+    </p>
+
+    <p>
+        <a asp-action="Create">Add New </a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr><!--Names that are visible on page-->
+                <th>
+                    Student Participate
+                </th>
+                <th>
+                    School
+                </th>
+                <th>
+                    Subject
+                </th>
+                <th>
+                    Marks
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student_participate.Father_Name)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School.School_Address)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject.Subject_Name)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marks)<!--do_not_delete_it-->
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
